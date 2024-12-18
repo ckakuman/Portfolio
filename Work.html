@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work - Chandra Kausik Kakumanu</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #F3E600; /* Cyberpunk yellow */
+            --bg: #0A0A0A; /* Deep black background */
+            --accent: #F3E600; /* Cyberpunk yellow */
+            --cool-accent: #03D8F3; /* Cyberpunk 2077 cyan blue */
+            --text: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto Mono', monospace;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--accent);
+            padding: 1rem;
+            border-bottom: 2px solid var(--bg);
+        }
+
+        header h1 {
+            font-family: 'Major Mono Display', monospace;
+            color: var(--bg);
+            text-transform: uppercase;
+            text-align: center;
+            letter-spacing: 5px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: rgba(10, 10, 10, 0.1);
+            padding: 1rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--bg);
+            margin: 0 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--cool-accent);
+        }
+
+        main {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: rgba(20, 20, 20, 0.9);
+            border: 1px solid var(--cool-accent);
+        }
+
+        h2 {
+            color: var(--accent);
+            font-family: 'Major Mono Display', monospace;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .project {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border: 1px solid var(--cool-accent);
+            background: rgba(30, 30, 30, 0.9);
+        }
+
+        .project h3 {
+            color: var(--cool-accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-links {
+            margin-top: 1rem;
+        }
+
+        .project-links a {
+            color: var(--accent);
+            text-decoration: none;
+            margin-right: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .project-links a:hover {
+            color: var(--cool-accent);
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Chandra Kausik Kakumanu</h1>
+    <nav>
+        <a href="index.html">About</a>
+        <a href="Work.html">Work</a>
+        <a href="Contact.html">Contact Me</a>
+    </nav>
+</header>
+
+<main>
+    <h2>My Projects</h2>
+    
+    <div class="project">
+        <h3>Redesigning MyASU homepage</h3>
+        <p>A comprehensive design system inspired by futuristic cyberpunk aesthetics, focusing on sleek, high-contrast interfaces.</p>
+        <div class="project-links">
+            <a href="#">View Project</a>
+            <a href="#">GitHub Repo</a>
+        </div>
+    </div>
+
+    <div class="project">
+        <h3>Fit Flow</h3>
+        <p>A web application that transforms complex data into engaging, interactive visual experiences using modern web technologies.</p>
+        <div class="project-links">
+            <a href="#">Live Demo</a>
+            <a href="#">GitHub Repo</a>
+        </div>
+    </div>
+
+    <div class="project">
+        <h3>Roamily</h3>
+        <p>A lightweight, performant CSS framework designed for seamless cross-device user experiences with a focus on minimalism.</p>
+        <div class="project-links">
+            <a href="#">Documentation</a>
+            <a href="#">GitHub Repo</a>
+        </div>
+    </div>
+</main>
+</body>
+</html>
