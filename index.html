@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Chandra Kausi Kakumanu</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #F3E600; /* Cyberpunk yellow */
+            --bg: #0A0A0A; /* Deep black background */
+            --accent: #F3E600; /* Cyberpunk yellow */
+            --cool-accent: #03D8F3; /* Cyberpunk 2077 cyan blue */
+            --text: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto Mono', monospace;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--accent);
+            padding: 1rem;
+            border-bottom: 2px solid var(--bg);
+        }
+
+        header h1 {
+            font-family: 'Major Mono Display', monospace;
+            color: var(--bg);
+            text-transform: uppercase;
+            text-align: center;
+            letter-spacing: 5px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: rgba(10, 10, 10, 0.1);
+            padding: 1rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--bg);
+            margin: 0 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--cool-accent);
+        }
+
+        main {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: rgba(20, 20, 20, 0.9);
+            border: 1px solid var(--cool-accent);
+        }
+
+        h2 {
+            color: var(--accent);
+            font-family: 'Major Mono Display', monospace;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            color: var(--text);
+        }
+
+        .skills {
+            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill {
+            background-color: rgba(30, 30, 30, 0.9);
+            color: var(--cool-accent);
+            padding: 0.25rem 0.5rem;
+            border: 1px solid var(--cool-accent);
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Chandra Kausik Kakumanu</h1>
+    <nav>
+        <a href="index.html">About</a>
+        <a href="Work.html">Work</a>
+        <a href="Contact.html">Contact Me</a>
+    </nav>
+</header>
+
+<main>
+    <h2>About Me</h2>
+    <p>Hello! I'm Chandra Kausik Kakumanu, a designer passionate about futuristic, sleek digital experiences. My strengths include design thinking, front-end development, and creating cutting-edge user interfaces.</p>
+    
+    <h2>Skills</h2>
+    <div class="skills">
+        <span class="skill">UI/UX Design</span>
+        <span class="skill">Front-End Development</span>
+        <span class="skill">Design Systems</span>
+        <span class="skill">Responsive Web Design</span>
+        <span class="skill">Interaction Design</span>
+    </div>
+</main>
+
+</body>
+</html>
