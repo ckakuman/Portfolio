@@ -25,10 +25,9 @@
             background-color: var(--bg);
             color: var(--text);
             line-height: 1.6;
-            overflow: hidden;
+            min-height: 100vh;
         }
 
-        /* Advanced Motion Background */
         canvas {
             position: fixed;
             top: 0;
@@ -38,7 +37,6 @@
             z-index: -1;
         }
 
-        /* Header Styles */
         header {
             background: var(--accent);
             padding: 1rem;
@@ -77,7 +75,6 @@
             color: var(--secondary);
         }
 
-        /* Main Content */
         main {
             max-width: 800px;
             margin: 2rem auto;
@@ -86,6 +83,7 @@
             border: 1px solid var(--secondary);
             position: relative;
             z-index: 1;
+            margin-bottom: 4rem;
         }
 
         h2 {
@@ -171,7 +169,6 @@
             this.x += this.speedX;
             this.y += this.speedY;
 
-            // Bounce particles off screen edges
             if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
             if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
         }

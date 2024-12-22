@@ -4,15 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - Chandra Kausik Kakumanu</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #F3E600; /* Cyberpunk yellow */
-            --bg: #0A0A0A; /* Deep black background */
-            --accent: #F3E600; /* Cyberpunk yellow */
-            --cool-accent: #03D8F3; /* Cyberpunk 2077 cyan blue */
-            --text: #FFFFFF;
+            --primary: #FF9E4B; /* More vibrant pastel orange */
+            --bg: #1D1D1D; /* Deep charcoal gray */
+            --accent: #FF9E4B; /* More vibrant pastel orange */
+            --text: #E0E0E0; /* Light gray text */
+            --secondary: #D8C8A0; /* Muted beige */
         }
 
         * {
@@ -22,16 +21,30 @@
         }
 
         body {
-            font-family: 'Roboto Mono', monospace;
+            font-family: 'Space Grotesk', sans-serif;
             background-color: var(--bg);
             color: var(--text);
             line-height: 1.6;
+            overflow: auto; /* Allow scrolling */
         }
 
+        /* Advanced Motion Background */
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Ensure canvas stays behind other elements */
+        }
+
+        /* Header Styles */
         header {
             background: var(--accent);
             padding: 1rem;
             border-bottom: 2px solid var(--bg);
+            position: relative;
+            z-index: 2;
         }
 
         header h1 {
@@ -45,7 +58,7 @@
         nav {
             display: flex;
             justify-content: center;
-            background: rgba(10, 10, 10, 0.1);
+            background: rgba(29, 29, 29, 0.1);
             padding: 1rem;
         }
 
@@ -56,18 +69,23 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             transition: color 0.3s ease;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
         }
 
         nav a:hover {
-            color: var(--cool-accent);
+            color: var(--secondary);
         }
 
+        /* Main Content */
         main {
             max-width: 800px;
             margin: 2rem auto;
             padding: 2rem;
-            background: rgba(20, 20, 20, 0.9);
-            border: 1px solid var(--cool-accent);
+            background: rgba(29, 29, 29, 0.9);
+            border: 1px solid var(--secondary);
+            position: relative;
+            z-index: 1;
         }
 
         h2 {
@@ -84,14 +102,23 @@
             gap: 1rem;
         }
 
+        .contact-info p {
+            color: var(--text);
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 300;
+            font-size: 1.1rem;
+            letter-spacing: 0.02em;
+        }
+
         .contact-info a {
-            color: var(--cool-accent);
+            color: var(--accent);
             text-decoration: none;
             transition: color 0.3s ease;
+            font-family: 'Space Grotesk', sans-serif;
         }
 
         .contact-info a:hover {
-            color: var(--accent);
+            color: var(--secondary);
         }
 
         form {
@@ -103,10 +130,17 @@
 
         input, textarea {
             background-color: rgba(30, 30, 30, 0.9);
-            border: 1px solid var(--cool-accent);
+            border: 1px solid var(--secondary);
             color: var(--text);
-            padding: 0.5rem;
-            font-family: 'Roboto Mono', monospace;
+            padding: 0.75rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            border-radius: 3px;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent);
         }
 
         button {
@@ -117,15 +151,22 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            border-radius: 3px;
         }
 
         button:hover {
-            background-color: var(--cool-accent);
+            background-color: var(--secondary);
+            transform: translateY(-2px);
         }
     </style>
 </head>
 <body>
+
+<canvas id="background"></canvas>
+
 <header>
     <h1>Chandra Kausik Kakumanu</h1>
     <nav>
@@ -134,6 +175,7 @@
         <a href="Contact.html">Contact Me</a>
     </nav>
 </header>
+
 <main>
     <h2>Contact Me</h2>
     <div class="contact-info">
@@ -149,5 +191,75 @@
         <button type="submit">Send Message</button>
     </form>
 </main>
+
+<script>
+    const canvas = document.getElementById('background');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const particles = [];
+    const colors = ['#FF9E4B', '#D8C8A0', '#1D1D1D'];
+
+    class Particle {
+        constructor(x, y, size, color, speedX, speedY) {
+            this.x = x;
+            this.y = y;
+            this.size = size;
+            this.color = color;
+            this.speedX = speedX;
+            this.speedY = speedY;
+        }
+
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+
+            // Bounce particles off screen edges
+            if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+            if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+        }
+
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fillStyle = this.color;
+            ctx.fill();
+            ctx.closePath();
+        }
+    }
+
+    function init() {
+        for (let i = 0; i < 100; i++) {
+            const size = Math.random() * 4 + 1;
+            const x = Math.random() * canvas.width;
+            const y = Math.random() * canvas.height;
+            const speedX = (Math.random() - 0.5) * 2;
+            const speedY = (Math.random() - 0.5) * 2;
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            particles.push(new Particle(x, y, size, color, speedX, speedY));
+        }
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach((particle) => {
+            particle.update();
+            particle.draw();
+        });
+        requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        particles.length = 0;
+        init();
+    });
+
+    init();
+    animate();
+</script>
+
 </body>
 </html>
