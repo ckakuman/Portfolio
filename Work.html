@@ -26,10 +26,8 @@
             background-color: var(--bg);
             color: var(--text);
             line-height: 1.6;
-            /* Remove overflow: hidden to fix scrolling */
         }
 
-        /* Advanced Motion Background */
         canvas {
             position: fixed;
             top: 0;
@@ -39,7 +37,6 @@
             z-index: -1;
         }
 
-        /* Header Styles */
         header {
             background: var(--accent);
             padding: 1rem;
@@ -78,7 +75,6 @@
             color: var(--secondary);
         }
 
-        /* Main Content */
         main {
             max-width: 800px;
             margin: 2rem auto;
@@ -97,6 +93,12 @@
             margin-bottom: 1rem;
         }
 
+        h3 {
+            font-family: 'Major Mono Display', monospace;
+            margin: 2rem 0 1rem;
+            color: var(--secondary);
+        }
+
         .project {
             margin-bottom: 2rem;
             padding: 1.5rem;
@@ -111,7 +113,7 @@
             border-color: var(--accent);
         }
 
-        .project h3 {
+        .project h4 {
             color: var(--accent);
             margin-bottom: 0.5rem;
             font-family: 'Space Grotesk', sans-serif;
@@ -162,8 +164,9 @@
 <main>
     <h2>My Projects</h2>
     
+    <h3>Completed Projects</h3>
     <div class="project">
-        <h3>Redesigning MyASU homepage</h3>
+        <h4>MyASU Redesign</h4>
         <p>Redesigning the ASU website to make it more sleek and easy to use.</p>
         <div class="project-links">
             <a href="#">View Project</a>
@@ -172,7 +175,17 @@
     </div>
 
     <div class="project">
-        <h3>Fit Flow</h3>
+        <h4>Roamily</h4>
+        <p>A travel app that helps users find new trips, meet new people to travel with, and book tickets.</p>
+        <div class="project-links">
+            <a href="#">Documentation</a>
+            <a href="#">GitHub Repo</a>
+        </div>
+    </div>
+
+    <h3>Projects in Progress</h3>
+    <div class="project">
+        <h4>Fit Flow</h4>
         <p>A fitness tracking app that focuses on helping the user get into the "flow" of fitness.</p>
         <div class="project-links">
             <a href="#">Live Demo</a>
@@ -181,10 +194,10 @@
     </div>
 
     <div class="project">
-        <h3>Roamily</h3>
-        <p>A travel app that helps users find new trips, meet new people to travel with, and book tickets.</p>
+        <h4>Vision AITV</h4>
+        <p>An AI-based streaming platform where users create and showcase videos made with AI and imagination.</p>
         <div class="project-links">
-            <a href="#">Documentation</a>
+            <a href="#">Prototype</a>
             <a href="#">GitHub Repo</a>
         </div>
     </div>
@@ -213,7 +226,6 @@
             this.x += this.speedX;
             this.y += this.speedY;
 
-            // Bounce particles off screen edges
             if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
             if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
         }
